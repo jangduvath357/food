@@ -15,6 +15,7 @@ const routes = [
 
   // ADMIN
   { path: '/admin',              component: () => import('../views/admin/Dashboard.vue'),    meta: { requiresAdmin: true } },
+  { path: '/dashboard',         redirect: '/admin' },
   { path: '/admin/orders',       component: () => import('../views/admin/Orders.vue'),       meta: { requiresAdmin: true } },
   { path: '/admin/menu',         component: () => import('../views/admin/MenuManage.vue'),   meta: { requiresAdmin: true } },
   { path: '/admin/reservations', component: () => import('../views/admin/Reservations.vue'), meta: { requiresAdmin: true } },
@@ -25,11 +26,11 @@ const router = createRouter({
   routes
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, from) => {
   const auth = useAuthStore()
-  if (to.meta.requiresAdmin && !auth.isAdmin) return next('/login')
-  if (to.meta.requiresAuth && !auth.isLoggedIn) return next('/login')
-  next()
+  if (to.meta.requiresAdmin && !auth.isAdmin) return '/login'
+  if (to.meta.requiresAuth && !auth.isLoggedIn) return '/login'
+  return true
 })
 
 export default router

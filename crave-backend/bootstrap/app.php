@@ -3,7 +3,6 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
-use Illuminate\Http\Request;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -13,12 +12,13 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-    $middleware->prepend(\Illuminate\Http\Middleware\HandleCors::class);
-    
-    $middleware->statefulApi();
-})
-    ->withExceptions(function (Exceptions $exceptions): void {
+        $middleware->prepend(\Illuminate\Http\Middleware\HandleCors::class);
+        $middleware->validateCsrfTokens(except: [
+            'api/*'
+        ]);
+    })
+    ->withExceptions(function (Exceptions $exceptions) {
         $exceptions->shouldRenderJsonWhen(
-            fn (Request $request) => $request->is('api/*'),
+            fn ($request) => $request->is('api/*')
         );
     })->create();
