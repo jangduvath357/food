@@ -1,24 +1,7 @@
 <template>
   <div class="profile-page">
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
-      <RouterLink to="/" class="logo">
-        <div class="logo-circle">C</div>
-        <span>Crave</span>
-      </RouterLink>
-      <div class="nav-links">
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/menu">Menu</RouterLink>
-        <RouterLink to="/reservation">Reservation</RouterLink>
-      </div>
-      <div class="nav-actions">
-        <RouterLink to="/order" class="cart-btn">
-          🛒 <span class="cart-count">{{ cartStore.totalItems }}</span>
-        </RouterLink>
-        <button class="btn-logout" @click="handleLogout">Logout</button>
-      </div>
-    </nav>
+    <Navbar />
 
     <div class="profile-layout">
 
@@ -135,6 +118,7 @@ import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '../../stores/auth'
 import { useCartStore } from '../../stores/cart'
+import Navbar from '../../components/Navbar.vue'
 import api from '../../api'
 
 const router    = useRouter()

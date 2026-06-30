@@ -5,6 +5,9 @@ const routes = [
   // PUBLIC
   { path: '/',            component: () => import('../views/user/Home.vue') },
   { path: '/menu',        component: () => import('../views/user/Menu.vue') },
+  { path: '/about',       component: () => import('../views/user/About.vue') },
+  { path: '/contact',     component: () => import('../views/user/Contact.vue') },
+  { path: '/blog',        component: () => import('../views/user/Blog.vue') },
   { path: '/login',       component: () => import('../views/user/Login.vue') },
   { path: '/register',    component: () => import('../views/user/Register.vue') },
 

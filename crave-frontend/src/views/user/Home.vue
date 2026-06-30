@@ -1,25 +1,6 @@
 ﻿<template>
   <div class="home-page">
-    <nav class="navbar">
-      <div class="logo">
-        <img :src="LogoImg" alt="Crave" />
-      </div>
-      <ul class="nav-links">
-        <li><RouterLink to="/" class="active">Home</RouterLink></li>
-        <li><RouterLink to="/menu">Menu</RouterLink></li>
-        <li><a href="#about">About us</a></li>
-        <li><RouterLink to="/reservation">Reservation</RouterLink></li>
-        <li><a href="#blog">Blog</a></li>
-      </ul>
-      <div class="nav-icons">
-        <button class="icon-btn" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
-        <button class="icon-btn2" type="button"><i class="fa-regular fa-user"></i></button>
-        <div class="cart-wrapper" @click="addToCart()">
-          <i class="fa-solid fa-bag-shopping" style="color: #F97316;"></i>
-          <span class="cart-badge">{{ cartCount }}</span>
-        </div>
-      </div>
-    </nav>
+    <Navbar />
 
     <section class="hero container">
       <div class="hero-content">
@@ -210,6 +191,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import Navbar from '../../components/Navbar.vue'
 
 import LogoImg from '../../../asset/homepageImge/Logo1.png'
 import Pf41 from '../../../asset/homepageImge/Pf4 (1).png'
@@ -323,11 +305,17 @@ a { text-decoration: none; color: inherit; }
 .stars { color: #f59e0b; letter-spacing: 2px; }
 .navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
-  flex-wrap: wrap;
-  background: #fefcf5;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0;
+  background: #fff;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-radius: 10px;
 }
 .logo img { height: 48px; }
 .nav-links {

@@ -1,24 +1,7 @@
 <template>
   <div class="reservation-page">
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
-      <RouterLink to="/" class="logo">
-        <div class="logo-circle">C</div>
-        <span>Crave</span>
-      </RouterLink>
-      <div class="nav-links">
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/menu">Menu</RouterLink>
-        <RouterLink to="/reservation">Reservation</RouterLink>
-      </div>
-      <div class="nav-actions">
-        <RouterLink to="/order" class="cart-btn">
-          🛒 <span class="cart-count">{{ cartStore.totalItems }}</span>
-        </RouterLink>
-        <RouterLink to="/profile" class="btn-login">{{ authStore.user?.name }}</RouterLink>
-      </div>
-    </nav>
+    <Navbar />
 
     <div class="reservation-layout">
 
@@ -118,11 +101,11 @@
 import { ref, computed } from 'vue'
 import { useCartStore } from '../../stores/cart'
 import { useAuthStore } from '../../stores/auth'
+import Navbar from '../../components/Navbar.vue'
 import api from '../../api'
 
-const cartStore = useAuthStore()
 const authStore = useAuthStore()
-const cartStore2 = useCartStore()
+const cartStore = useCartStore()
 
 const loading = ref(false)
 const error   = ref('')

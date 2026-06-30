@@ -1,22 +1,6 @@
 ﻿<template>
   <div class="menu-page">
-    <nav class="navbar">
-      <RouterLink to="/" class="logo">
-        <img :src="LogoImg" alt="Crave" />
-      </RouterLink>
-      <div class="nav-links">
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/menu">Menu</RouterLink>
-        <RouterLink to="/reservation">Reservation</RouterLink>
-      </div>
-      <div class="nav-actions">
-        <RouterLink to="/order" class="cart-btn">
-          🛒 <span class="cart-count">{{ cartStore.totalItems }}</span>
-        </RouterLink>
-        <RouterLink to="/login" v-if="!authStore.isLoggedIn" class="btn-login">Log in</RouterLink>
-        <RouterLink to="/profile" v-else class="btn-login">{{ authStore.user?.name || 'Profile' }}</RouterLink>
-      </div>
-    </nav>
+    <Navbar />
 
     <section class="menu-header">
       <h1>Our Menu</h1>
@@ -200,6 +184,7 @@
 import { ref, computed } from 'vue'
 import { useCartStore } from '../../stores/cart'
 import { useAuthStore } from '../../stores/auth'
+import Navbar from '../../components/Navbar.vue'
 
 import LogoImg from '../../../asset/homepageImge/Logo1.png'
 import DishSpaghetti from '../../../asset/homepageImge/spagatti.png'
@@ -207,8 +192,24 @@ import DishGnocchi from '../../../asset/homepageImge/gnochhi.png'
 import DishRavioli from '../../../asset/homepageImge/ravioli.png'
 import DishPenne from '../../../asset/homepageImge/penne arrabbiata.png'
 import DishPizza from '../../../asset/homepageImge/Pizza.png'
-import DishRisotto from '../../../asset/homepageImge/Toasted Ravioli.png'
 import DishTaco from '../../../asset/homepageImge/Taco.png'
+import DishBakedEggplant from '../../../asset/DinnerMenupage/bakedstuffedeggplant.jpg'
+import Braciole from '../../../asset/DinnerMenupage/Braciole.jpg'
+import pizza_traditional from '../../../asset/DinnerMenupage/Traditional-Italian.jpg'
+import vegetarian from '../../../asset/lunchPageimage/A vegetarian.jpg'
+import crispy from '../../../asset/lunchPageimage/Crispy-gnocchi.jpg'
+import grilled from '../../../asset/lunchPageimage/grilled-eggplant.jpg'
+import pizza_bark from '../../../asset/lunchPageimage/pizza-baked.jpg'
+import vegan from '../../../asset/lunchPageimage/Vegan-Italian.jpg'
+import easy_chocolate from '../../../asset/Dessert/Easy-Chocolate.jpg'
+import lemonberry from '../../../asset/Dessert/lemon-berry.jpg'
+import moms from '../../../asset/Dessert/moms.jpg'
+import mushroom from '../../../asset/Dessert/mushroom_8.jpg'
+import peanut from '../../../asset/Dessert/Peanut_Butter.jpg'
+import strawberry from '../../../asset/Dessert/Strawberry-cake.jpg'
+
+
+
 
 const cartStore = useCartStore()
 const authStore = useAuthStore()
@@ -315,7 +316,7 @@ const menuItems = ref([
   },
   {
     id: 6,
-    name: 'Taco Salad',
+    name: 'easy_chocolate',
     category: 'Dessert',
     description: 'Fresh taco salad with crispy tortilla strips and avocado.',
     price: 11.0,
@@ -323,12 +324,199 @@ const menuItems = ref([
     has_discount: false,
     discount_pct: 0,
     deliveryInfo: '9 min • 2 km • $0 delivery fee',
-    image: DishTaco,
+    image: easy_chocolate,
     variants: [
       { label: 'Single', price: 11.0 },
       { label: 'Double', price: 16.0 }
     ]
+  },
+  {
+    id: 7,
+    name: 'DishBakedEggplant',
+    category: 'Dinner',
+    description: 'Four baked eggplant halves are stuffed, topped with chunky red tomato sauce, and garnished with fresh green herbs and crumbled white cheese on a white plate.',
+    price: 15.0,
+    rating: 4.5,
+    has_discount: false,
+    discount_pct: 0,
+    deliveryInfo: '9 min • 2 km • $0 delivery fee',
+    image: DishBakedEggplant,
+    variants: [
+      { label: 'Single', price: 15.0 },
+      { label: 'Double', price: 20.0 }
+    ]
+  },
+   {
+    id: 8,
+    name: 'Braciole',
+    category: 'Dinner',
+    description: 'Slow-braised beef rolls stuffed with cheese, herbs, and tomato sauce.',
+    price: 18.5,
+    rating: 4.8,
+    has_discount: false,
+    discount_pct: 0,
+    deliveryInfo: '15 min • 3.2 km • $0 delivery fee',
+    image: Braciole,
+    variants: [
+      { label: 'Single', price: 18.5 },
+      { label: 'Double', price: 24.0 }
+    ]
+  },{
+    id: 9,
+    name: 'vegetarian',
+    category: 'Dinner',
+    description: 'Slow-braised beef rolls stuffed with cheese, herbs, and tomato sauce.',
+    price: 18.5,
+    rating: 4.8,
+    has_discount: false,
+    discount_pct: 0,
+    deliveryInfo: '15 min • 3.2 km • $0 delivery fee',
+    image: vegetarian,
+    variants: [
+      { label: 'Single', price: 18.5 },
+      { label: 'Double', price: 24.0 }
+    ]
+  },
+  {
+    id: 10,
+    name: 'crispy',
+    category: 'Lunch',
+    description: 'Slow-braised beef rolls stuffed with cheese, herbs, and tomato sauce.',
+    price: 18.5,
+    rating: 4.8,
+    has_discount: false,
+    discount_pct: 0,
+    deliveryInfo: '15 min • 3.2 km • $0 delivery fee',
+    image: crispy,
+    variants: [
+      { label: 'Single', price: 18.5 },
+      { label: 'Double', price: 24.0 }
+    ]
+  },
+  {
+    id: 11,
+    name: 'grilled',
+    category: 'Lunch',
+    description: 'Slow-braised beef rolls stuffed with cheese, herbs, and tomato sauce.',
+    price: 18.5,
+    rating: 4.8,
+    has_discount: false,
+    discount_pct: 0,
+    deliveryInfo: '15 min • 3.2 km • $0 delivery fee',
+    image: grilled,
+    variants: [
+      { label: 'Single', price: 18.5 },
+      { label: 'Double', price: 24.0 }
+    ]
+  },
+  {
+    id: 12,
+    name: 'pizza_bark',
+    category: 'Lunch',
+    description: 'Slow-braised beef rolls stuffed with cheese, herbs, and tomato sauce.',
+    price: 18.5,
+    rating: 4.8,
+    has_discount: false,
+    discount_pct: 0,
+    deliveryInfo: '15 min • 3.2 km • $0 delivery fee',
+    image: pizza_bark,
+    variants: [
+      { label: 'Single', price: 18.5 },
+      { label: 'Double', price: 24.0 }
+    ]
+  },
+  {
+    id: 13,
+    name: 'vegan',
+    category: 'Lunch',
+    description: 'Slow-braised beef rolls stuffed with cheese, herbs, and tomato sauce.',
+    price: 18.5,
+    rating: 4.8,
+    has_discount: false,
+    discount_pct: 0,
+    deliveryInfo: '15 min • 3.2 km • $0 delivery fee',
+    image: vegan,
+    variants: [
+      { label: 'Single', price: 18.5 },
+      { label: 'Double', price: 24.0 }
+    ]
+  },
+   {id: 14,
+    name: 'lemonberry',
+    category: 'Dessert',
+    description: 'Slow-braised beef rolls stuffed with cheese, herbs, and tomato sauce.',
+    price: 18.5,
+    rating: 4.8,
+    has_discount: false,
+    discount_pct: 0,
+    deliveryInfo: '15 min • 3.2 km • $0 delivery fee',
+    image: lemonberry,
+    variants: [
+      { label: 'Single', price: 18.5 },
+      { label: 'Double', price: 24.0 }
+    ]
+  },
+  {id: 15,
+    name: 'moms',
+    category: 'Dessert',
+    description: 'Slow-braised beef rolls stuffed with cheese, herbs, and tomato sauce.',
+    price: 18.5,
+    rating: 4.8,
+    has_discount: false,
+    discount_pct: 0,
+    deliveryInfo: '15 min • 3.2 km • $0 delivery fee',
+    image: moms,
+    variants: [
+      { label: 'Single', price: 18.5 },
+      { label: 'Double', price: 24.0 }
+    ]
+  },
+  {id: 16,
+    name: 'mushroom',
+    category: 'Dessert',
+    description: 'Slow-braised beef rolls stuffed with cheese, herbs, and tomato sauce.',
+    price: 18.5,
+    rating: 4.8,
+    has_discount: false,
+    discount_pct: 0,
+    deliveryInfo: '15 min • 3.2 km • $0 delivery fee',
+    image: mushroom,
+    variants: [
+      { label: 'Single', price: 18.5 },
+      { label: 'Double', price: 24.0 }
+    ]
+  },
+  {id: 17,
+    name: 'peanut',
+    category: 'Dessert',
+    description: 'Slow-braised beef rolls stuffed with cheese, herbs, and tomato sauce.',
+    price: 18.5,
+    rating: 4.8,
+    has_discount: false,
+    discount_pct: 0,
+    deliveryInfo: '15 min • 3.2 km • $0 delivery fee',
+    image: peanut,
+    variants: [
+      { label: 'Single', price: 18.5 },
+      { label: 'Double', price: 24.0 }
+    ]
+  },
+  {id: 18,
+    name: 'strawberry',
+    category: 'Dessert',
+    description: 'Slow-braised beef rolls stuffed with cheese, herbs, and tomato sauce.',
+    price: 18.5,
+    rating: 4.8,
+    has_discount: false,
+    discount_pct: 0,
+    deliveryInfo: '15 min • 3.2 km • $0 delivery fee',
+    image: strawberry,
+    variants: [
+      { label: 'Single', price: 18.5 },
+      { label: 'Double', price: 24.0 }
+    ]
   }
+  
 ])
 
 const addons = [
@@ -404,9 +592,24 @@ function subscribe() {
 
 <style scoped>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-.menu-page { min-height: 100vh; background: #fefcf5; font-family: 'Inter', sans-serif; color: #1f2937; }
+.menu-page { min-height: 100vh; background: #fefcf5; font-family: 'Inter', sans-serif; color: #1f2937; display: flex; flex-direction: column; align-items: center; }
+.menu-page > * { width: 100%; max-width: 1200px; }
+.menu-page > .navbar { max-width: none; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-.navbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 0; }
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0;
+  background: #fff;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-radius: 10px;
+}
 .logo img { height: 42px; }
 .nav-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
 .nav-links a { color: #4b5563; text-decoration: none; font-weight: 500; }
@@ -425,10 +628,10 @@ function subscribe() {
 .search-wrap { display: flex; justify-content: center; }
 .search-input { width: 100%; max-width: 520px; padding: 0.9rem 1.1rem; border-radius: 9999px; border: 1px solid #d1d5db; }
 .menu-items { padding-bottom: 3rem; }
-.menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
-.menu-card { background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 30px rgba(15,23,42,0.08); transition: transform 0.2s; }
+.menu-grid { display: grid; grid-template-columns: repeat(3, minmax(260px, 320px)); justify-content: center; gap: 1.5rem; }
+.menu-card { background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 30px rgba(15,23,42,0.08); transition: transform 0.2s; max-width: 320px; width: 100%; }
 .menu-card:hover { transform: translateY(-4px); }
-.card-img-wrap { position: relative; min-height: 220px; overflow: hidden; }
+.card-img-wrap { position: relative; min-height: 210px; overflow: hidden; }
 .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .badge { position: absolute; top: 16px; left: 16px; background: #f97316; color: white; padding: 0.35rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; }
 .card-body { padding: 1.25rem; }
@@ -456,14 +659,15 @@ function subscribe() {
 .subscribe-form input { flex: 1 1 200px; padding: 0.85rem 1rem; border: 1px solid #d1d5db; border-radius: 9999px; }
 .subscribe-form button { border: none; background: #f97316; color: white; padding: 0.85rem 1.25rem; border-radius: 9999px; cursor: pointer; }
 .footer-bottom { border-top: 1px solid #e5e7eb; padding: 1.25rem 0; text-align: center; color: #6b7280; }
-.product-modal-overlay { position: fixed; inset: 0; background: rgba(15,23,42,0.6); display: flex; justify-content: center; align-items: center; padding: 1.5rem; z-index: 50; }
-.product-modal-container { background: white; width: min(100%, 740px); border-radius: 28px; overflow: hidden; }
-.product-modal-header { position: relative; padding: 1.5rem; display: grid; gap: 1rem; }
+.product-modal-overlay { position: fixed; inset: 0; background: rgba(15,23,42,0.6); display: flex; justify-content: center; align-items: center; padding: 1rem; z-index: 50; }
+.product-modal-container { background: white; width: min(100%, 720px); max-height: 90vh; border-radius: 28px; overflow: hidden; display: flex; flex-direction: column; }
+.product-modal-header { position: relative; padding: 1.25rem; display: grid; gap: 1rem; }
 .modal-discount-badge { position: absolute; top: 1.25rem; left: 1.25rem; background: #f97316; color: white; padding: 0.5rem 0.85rem; border-radius: 9999px; font-weight: 700; }
 .modal-close-btn { position: absolute; top: 1rem; right: 1rem; border: none; background: transparent; font-size: 1.1rem; cursor: pointer; }
-.product-image-wrapper { width: 100%; min-height: 260px; overflow: hidden; border-radius: 24px; }
+.product-image-wrapper { width: 100%; height: 260px; max-height: 320px; overflow: hidden; border-radius: 24px; }
 .product-image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
-.product-modal-scrollable { padding: 1.5rem; border-top: 1px solid #f3f4f6; }
+.product-modal-scrollable { padding: 1.5rem; border-top: 1px solid #f3f4f6; overflow-y: auto; }
+.product-modal-container, .product-modal-scrollable { min-height: 0; }
 .veg-indicator { width: 16px; height: 16px; border-radius: 50%; background: #34d399; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
 .veg-indicator.small { width: 12px; height: 12px; }
 .veg-indicator .dot { width: 6px; height: 6px; border-radius: 50%; background: white; }
