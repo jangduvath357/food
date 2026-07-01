@@ -183,7 +183,6 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useCartStore } from '../../stores/cart'
-import { useAuthStore } from '../../stores/auth'
 import Navbar from '../../components/Navbar.vue'
 
 import LogoImg from '../../../asset/homepageImge/Logo1.png'
@@ -192,10 +191,8 @@ import DishGnocchi from '../../../asset/homepageImge/gnochhi.png'
 import DishRavioli from '../../../asset/homepageImge/ravioli.png'
 import DishPenne from '../../../asset/homepageImge/penne arrabbiata.png'
 import DishPizza from '../../../asset/homepageImge/Pizza.png'
-import DishTaco from '../../../asset/homepageImge/Taco.png'
 import DishBakedEggplant from '../../../asset/DinnerMenupage/bakedstuffedeggplant.jpg'
 import Braciole from '../../../asset/DinnerMenupage/Braciole.jpg'
-import pizza_traditional from '../../../asset/DinnerMenupage/Traditional-Italian.jpg'
 import vegetarian from '../../../asset/lunchPageimage/A vegetarian.jpg'
 import crispy from '../../../asset/lunchPageimage/Crispy-gnocchi.jpg'
 import grilled from '../../../asset/lunchPageimage/grilled-eggplant.jpg'
@@ -206,13 +203,15 @@ import lemonberry from '../../../asset/Dessert/lemon-berry.jpg'
 import moms from '../../../asset/Dessert/moms.jpg'
 import mushroom from '../../../asset/Dessert/mushroom_8.jpg'
 import peanut from '../../../asset/Dessert/Peanut_Butter.jpg'
-import strawberry from '../../../asset/Dessert/Strawberry-cake.jpg'
-
-
-
+import strawberry_cake from '../../../asset/Dessert/Strawberry-cake.jpg'
+import passion from '../../../asset/DrinkPageImage/Passionfruit.jpg'
+import sombrero from '../../../asset/DrinkPageImage/sombrero-drink.jpg'
+import strawberry_mojito from '../../../asset/DrinkPageImage/strawberry_mojito.jpg'
+import summer from '.././../../asset/DrinkPageImage/summer-cocktails.jpg'
+import tequila from '../../../asset/DrinkPageImage/Tequila-sunrise.jpg'
+import vodka from '../../../asset/DrinkPageImage/Vodka_cherry.jpg'
 
 const cartStore = useCartStore()
-const authStore = useAuthStore()
 
 const search = ref('')
 const selectedCategory = ref('All')
@@ -510,12 +509,103 @@ const menuItems = ref([
     has_discount: false,
     discount_pct: 0,
     deliveryInfo: '15 min • 3.2 km • $0 delivery fee',
-    image: strawberry,
+    image: strawberry_cake,
     variants: [
       { label: 'Single', price: 18.5 },
       { label: 'Double', price: 24.0 }
     ]
-  }
+  },
+  {id: 19,
+    name: 'passion',
+    category: 'Drink',
+    description: 'Slow-braised beef rolls stuffed with cheese, herbs, and tomato sauce.',
+    price: 18.5,
+    rating: 4.8,
+    has_discount: false,
+    discount_pct: 0,
+    deliveryInfo: '15 min • 3.2 km • $0 delivery fee',
+    image: passion,
+    variants: [
+      { label: 'Single', price: 18.5 },
+      { label: 'Double', price: 24.0 }
+    ]
+  },
+  {id: 20,
+    name: 'sombrero',
+    category: 'Drink',
+    description: 'Slow-braised beef rolls stuffed with cheese, herbs, and tomato sauce.',
+    price: 18.5,
+    rating: 4.8,
+    has_discount: false,
+    discount_pct: 0,
+    deliveryInfo: '15 min • 3.2 km • $0 delivery fee',
+    image: sombrero,
+    variants: [
+      { label: 'Single', price: 18.5 },
+      { label: 'Double', price: 24.0 }
+    ]
+  },
+  {id: 21,
+    name: 'strawberry',
+    category: 'Drink',
+    description: 'Slow-braised beef rolls stuffed with cheese, herbs, and tomato sauce.',
+    price: 18.5,
+    rating: 4.8,
+    has_discount: false,
+    discount_pct: 0,
+    deliveryInfo: '15 min • 3.2 km • $0 delivery fee',
+    image: strawberry_mojito,
+    variants: [
+      { label: 'Single', price: 18.5 },
+      { label: 'Double', price: 24.0 }
+    ]
+  },
+  {id: 22,
+    name: 'summer',
+    category: 'Drink',
+    description: 'Slow-braised beef rolls stuffed with cheese, herbs, and tomato sauce.',
+    price: 18.5,
+    rating: 4.8,
+    has_discount: false,
+    discount_pct: 0,
+    deliveryInfo: '15 min • 3.2 km • $0 delivery fee',
+    image: summer,
+    variants: [
+      { label: 'Single', price: 18.5 },
+      { label: 'Double', price: 24.0 }
+    ]
+  },
+  {id: 23,
+    name: 'tequila',
+    category: 'Drink',
+    description: 'Slow-braised beef rolls stuffed with cheese, herbs, and tomato sauce.',
+    price: 18.5,
+    rating: 4.8,
+    has_discount: false,
+    discount_pct: 0,
+    deliveryInfo: '15 min • 3.2 km • $0 delivery fee',
+    image: tequila,
+    variants: [
+      { label: 'Single', price: 18.5 },
+      { label: 'Double', price: 24.0 }
+    ]
+  },
+  {id: 24,
+    name: 'vodaka',
+    category: 'Drink',
+    description: 'Slow-braised beef rolls stuffed with cheese, herbs, and tomato sauce.',
+    price: 18.5,
+    rating: 4.8,
+    has_discount: false,
+    discount_pct: 0,
+    deliveryInfo: '15 min • 3.2 km • $0 delivery fee',
+    image: vodka,
+    variants: [
+      { label: 'Single', price: 18.5 },
+      { label: 'Double', price: 24.0 }
+    ]
+  },
+  
   
 ])
 

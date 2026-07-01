@@ -158,9 +158,9 @@
           <ul>
             <li><RouterLink to="/">Home</RouterLink></li>
             <li><RouterLink to="/menu">Menu</RouterLink></li>
-            <li><a href="#about">About us</a></li>
+            <li><RouterLink to="/about">About us</RouterLink></li>
             <li><RouterLink to="/reservation">Reservation</RouterLink></li>
-            <li><a href="#blog">Blog</a></li>
+            <li><RouterLink to="/blog">Blog</RouterLink></li>
           </ul>
         </div>
         <div class="footer-links">

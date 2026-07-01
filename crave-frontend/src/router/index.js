@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
 
+
 const routes = [
   // PUBLIC
   { path: '/',            component: () => import('../views/user/Home.vue') },
@@ -20,7 +21,7 @@ const routes = [
   { path: '/admin',              component: () => import('../views/admin/Dashboard.vue'),    meta: { requiresAdmin: true } },
   { path: '/dashboard',         redirect: '/admin' },
   { path: '/admin/orders',       component: () => import('../views/admin/Orders.vue'),       meta: { requiresAdmin: true } },
-  { path: '/admin/menu',         component: () => import('../views/admin/MenuManage.vue'),   meta: { requiresAdmin: true } },
+  { path: '/admin/menu',         component: () => import('../views/admin/MenuForm.vue'),     meta: { requiresAdmin: true } },
   { path: '/admin/reservations', component: () => import('../views/admin/Reservations.vue'), meta: { requiresAdmin: true } },
 ]
 
